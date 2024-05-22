@@ -51,7 +51,7 @@ const WritingArea = () => {
             // <video
             <div
               key={index}
-              className={`${activeLetter}`}
+              className={`lettar${activeLetter}`}
               id={activeLetter + (index + 1)}
               style={{
                 width: selectedNode["width"],
@@ -97,8 +97,8 @@ const WritingArea = () => {
   const memoList = React.useMemo(
     () =>
       newWord.split("").map((curr: any, index: any) => {
-        const node =
-          data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr];
+        const node =data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr];    
+          
         if (
           data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr][
             "refAnim"
@@ -157,7 +157,9 @@ const WritingArea = () => {
   );
 
   const renderSpecifiedWord = () => {
-    if (pathname == "/own") {
+    console.log(newWord);
+    
+    if (pathname == "/own" && newWord) {
       return <div className={"traceLetter"}>{memoList}</div>;
     }
     return (

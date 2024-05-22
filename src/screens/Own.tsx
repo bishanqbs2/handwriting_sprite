@@ -5,10 +5,12 @@ import LetterBox from "../components/LetterBox";
 import WritingArea from "../components/WritingArea";
 
 const Own = () => {
-  const { lowerCaseLetters,setTraceToggle,setSelectedWord } = useContext(GlobalContext);
+  const { lowerCaseLetters,setTraceToggle,setSelectedWord,setActiveLetter,setNewWord} = useContext(GlobalContext);
   useEffect(()=>{
     setTraceToggle(true);
     setSelectedWord("");
+    setActiveLetter("");
+    setNewWord("");
   },[])
   return (
     <Layout>
