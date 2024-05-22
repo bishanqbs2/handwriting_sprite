@@ -298,6 +298,7 @@
       "refImage": "/media/images/'.png",
       "refWord": "zebra",
       "refAnim": "/media/videos/lowercase/'.webm",
+      "refSprite": "/media/sprite/lowercase/'.png",
       "count": 5,
       "width": 20,
       "height": 250
@@ -307,6 +308,7 @@
       "refImage": "/media/images/-.png",
       "refWord": "zebra",
       "refAnim": "/media/videos/lowercase/-.webm",
+      "refSprite": "/media/sprite/lowercase/-.png",
       "count": 5,
       "width": 46,
       "height": 250,
