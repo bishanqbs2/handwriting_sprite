@@ -51,7 +51,7 @@ const WritingArea = () => {
             // <video
             <div
               key={index}
-              className={`lettar${activeLetter}`}
+              className={`lettar_${activeLetter}`}
               id={activeLetter + (index + 1)}
               style={{
                 width: selectedNode["width"],
@@ -247,24 +247,29 @@ const WritingArea = () => {
 
   useEffect(() => {
     const resettime = setTimeout(() => {
-      console.log();
+      console.log('changed',playonetime);
+      const traceArea = document.querySelector(".traceLetter");
+      let elementArr: any = traceArea ? traceArea.children : [];
       
       if (
-        activeLetter &&
+        newWord.length &&
         traceToggle &&
         noPractice.includes(pathname) &&
-        pathname == "/own"&&playonetime
+        pathname == "/own"&& playonetime 
       ) {
-        const traceArea = document.querySelector(".traceLetter");
-        let elementArr: any = traceArea ? traceArea.children : [];
-        if (elementArr) setElements([...elementArr]);
+        console.log(elementArr);
+        
+        if (elementArr) {
+          setElements([...elementArr])
+          setPlayone(false);
+        };
         [...elementArr]?.forEach((vid: any, i: number) => {
           if ([...elementArr].length && traceToggle) {
             [...elementArr][0]?.classList.add(`start`);
           } else if ([...elementArr].length && !traceToggle) {
           }
         });
-        setPlayone(!playonetime);
+      
       } else if (
         activeLetter &&
         traceToggle &&
@@ -427,7 +432,6 @@ const WritingArea = () => {
     } else {
       setPlayone(true);
       resetVideos();
-      // pauseAllVideos();
       playLetterAnimation();
     }
   }, [traceToggle]);

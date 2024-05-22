@@ -9,7 +9,6 @@ const Own = () => {
   useEffect(()=>{
     setTraceToggle(true);
     setSelectedWord("");
-    setActiveLetter("");
     setNewWord("");
   },[])
   return (
