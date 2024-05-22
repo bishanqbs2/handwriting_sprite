@@ -45,8 +45,7 @@ function PilotComp() {
     setLowerCaseLetters(Object.keys(data["lowercase"]));
     setUpperCaseLetters(Object.keys(data["uppercase"]));
     setNumbers(Object.keys(data["num"]));
-    preload();
-
+    
   };
 const items = [
   {src:"/media/sprite/lowercase/a.png"},
@@ -148,6 +147,7 @@ async function preload() {
 
   useEffect(() => {
     fetchData();
+    preload();
   }, []);
 
 
