@@ -124,7 +124,8 @@ const WritingArea = () => {
                   elementArr[index].classList.remove(`start`);
                   elementArr[index + 1].classList.add(`start`);
                   setplayedindex(index + 1);
-                } else if (elementArr.length == index + 1) {  
+                } else if (elementArr.length == index + 1) {
+
                   elementArr[index].classList.add(`end`);
                   elementArr[index].classList.remove(`start`);
 
@@ -136,7 +137,7 @@ const WritingArea = () => {
                     }, 700);
                     clearTimeout(timeout);
                   }, 700);
-                  setPlayedvid(true);
+                  // setPlayedvid(true);
                   setSt(index + 1);
                 }
               }}
@@ -351,7 +352,7 @@ const WritingArea = () => {
   };
   useEffect(() => {
     if (playedvid) {
-      playLetterAnimation();
+      // playLetterAnimation();
     }
   }, [playedvid]);
 
