@@ -13,4 +13,4 @@ root.render(
   // </React.StrictMode>
 );
 
-// console.log = function () {};
+console.log = function () {};
