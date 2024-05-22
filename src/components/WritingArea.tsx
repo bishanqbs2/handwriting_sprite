@@ -96,36 +96,49 @@ const WritingArea = () => {
     ) {
       return (
         // <video height={210} width={curr == curr.toLowerCase() ? (data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refWord"] === "space" ? 40 : 82) : 145}
-        <video
-          // height={""}
-          // width={curr == curr.toLowerCase() ? (data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refWord"] === "space" ? 40 : "") : 145}
-          key={index}
-          id={"vids" + (index + 1)}
-          onEnded={() => {
+        <div
+          className={`${curr}`}
+          id={(curr) + (index + 1)}
+
+          // onEnded={() => {
+          //   const traceArea = document.querySelector(".traceLetter");
+          //   let elementArr: any = traceArea ? traceArea.children : [];
+          //   if (elementArr) setElements([...elementArr]);         
+          //   if (elementArr.length > index + 1) {
+          //     elementArr[index + 1].play();
+          //     setplayedindex(index + 1);
+          //   } else if (elementArr.length == index + 1) {
+          //     setPlayedvid(true);
+          //     setSt(index + 1);
+          //   }
+            
+          // }}
+          onAnimationEnd={()=>{
             const traceArea = document.querySelector(".traceLetter");
             let elementArr: any = traceArea ? traceArea.children : [];
             if (elementArr) setElements([...elementArr]);    
-            console.log(playonetime);                           
+            console.log(elementArr.length, index + 1);         
             if (elementArr.length > index + 1) {
-              elementArr[index + 1].play();
+              elementArr[index].classList.add(`end`)
+              elementArr[index].classList.remove(`start`)
+              elementArr[index + 1].classList.add(`start`)
               setplayedindex(index + 1);
-            } else if (elementArr.length == index + 1) {
+            } else if (elementArr.length == index + 1) {   
+              resetVideos();
+              [...elementArr][0]?.classList.add(`start`);
               setPlayedvid(true);
               setSt(index + 1);
             }
-            
           }}
+
           style={{
             marginRight: (node["mright"] ? node["mright"] : '0'),
-            marginLeft: (node["mleft"] ? node["mleft"] : '0')
-          }}
-          height={node["height"]}
-          width={ node["width"] }
-          src={
-            process.env.PUBLIC_URL +
-            data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refAnim"] || ""
-          }
-        />
+            marginLeft: (node["mleft"] ? node["mleft"] : '0'),
+            width:data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["width"], height:data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["height"], backgroundImage:`url(${process.env.PUBLIC_URL + data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refSprite"]})`
+          }}      
+       
+        ></div>
+
       );
     }
 
@@ -196,7 +209,7 @@ const WritingArea = () => {
 
 
   useEffect(() => {
-    console.log(traceToggle);
+
     
     const resettime = setTimeout(() => {      
       if (activeLetter && traceToggle && noPractice.includes(pathname) && pathname == "/own" && playonetime) {
@@ -204,9 +217,11 @@ const WritingArea = () => {
         let elementArr: any = traceArea ? traceArea.children : [];
         if (elementArr) setElements([...elementArr]);
         [...elementArr]?.forEach((vid: any, i: number) => {
-          if ([...elementArr].length && traceToggle) [...elementArr][0]?.play();
-          else if ([...elementArr].length && !traceToggle)
-            [...elementArr][0]?.pause();
+          if ([...elementArr].length && traceToggle){
+            [...elementArr][0]?.classList.add(`start`)
+          }
+          else if ([...elementArr].length && !traceToggle){
+          }
         });
         setPlayone(!playonetime);
       } else if (activeLetter && traceToggle && noPractice.includes(pathname) && pathname == "/own"){
@@ -238,7 +253,7 @@ const WritingArea = () => {
       if (elementArr) setElements([...elementArr]);
       [...elementArr]?.forEach((vid: any, i: number) => {
         if ([...elementArr].length && traceToggle) {
-          console.log([...elementArr][0]);
+         
           [...elementArr][0]?.classList.add(`start`)
         }
         else if ([...elementArr].length && !traceToggle)
@@ -270,31 +285,31 @@ const WritingArea = () => {
       if (elementArr) setElements([...elementArr]);
       [...elementArr]?.forEach((vid: any, i: number) => {
         if ([...elementArr].length < 2 && traceToggle) {
-          [...elementArr][0]?.play();
+          [...elementArr][0]?.classList.add(`start`)
         } else if ([...elementArr].length && !traceToggle)
          { 
           // [...elementArr][0]?.pause();
         }
       });
 
-      [...elementArr]?.map((curr: any, index: any) => {      
+      // [...elementArr]?.map((curr: any, index: any) => {      
 
         
-        if ([...elementArr].length > 0 && traceToggle && curr.currentTime == 0 && playedvid) {
-          console.log(curr.currentTime == 0,index);
-          console.log('b');
-          setPlayedvid(false);
-          [...elementArr][st]?.play();
-        }else if ([...elementArr].length && traceToggle && curr.currentTime != 0 && playedvid) {
-          console.log(curr.currentTime,index,'a');
-          console.log('a');          
-          resetVideos();
-          [...elementArr][0]?.play();
-          setSt(0);
-          setPlayedvid(false);
-        }
+      //   if ([...elementArr].length > 0 && traceToggle && curr.currentTime == 0 && playedvid) {
+      //     console.log(curr.currentTime == 0,index);
+      //     console.log('b');
+      //     setPlayedvid(false);
+      //     [...elementArr][st]?.play();
+      //   }else if ([...elementArr].length && traceToggle && curr.currentTime != 0 && playedvid) {
+      //     console.log(curr.currentTime,index,'a');
+      //     console.log('a');          
+      //     resetVideos();
+      //     [...elementArr][0]?.play();
+      //     setSt(0);
+      //     setPlayedvid(false);
+      //   }
 
-      })
+      // })
     }
   };
 useEffect(()=>{
@@ -333,11 +348,8 @@ useEffect(()=>{
       const traceArea = document.querySelector(".traceLetter");
       let elementArr: any = traceArea ? traceArea.children : [];
       [...elementArr]?.forEach((vid: any) => {
-        if (vid.currentTime !== 0) {
-          vid.currentTime = 0;
-          // pauseAllVideos();
-        }
-
+        vid.classList.remove(`end`);
+        vid.classList.remove(`start`);
       });
     }
     if (noPractice.includes(pathname) && pathname !== "/own") {
