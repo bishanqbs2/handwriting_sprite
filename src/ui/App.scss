@@ -1,0 +1,1131 @@
+@font-face {
+  font-family: "SassoonSansforOUP_Regular";
+  src: url("./fonts/SassoonSansforOUP_Regular.otf") format("opentype"),
+    url("./fonts/SassoonSansforOUP_Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SassoonSansforOUP_Medium";
+  src: url("./fonts/SassoonSansforOUP_Medium.otf") format("opentype"),
+    url("./fonts/SassoonSansforOUP_Medium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SassoonSansforOUP_Bold";
+  src: url("./fonts/SassoonSansforOUP_Bold.otf") format("opentype"),
+    url("./fonts/SassoonSansforOUP_Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&display=swap");
+
+* {
+  -webkit-tap-highlight-color: rgba($color: #000000, $alpha: 0);
+  user-select: none;
+}
+::selection {
+  background-color: rgba($color: #000000, $alpha: 0);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #666;
+  overflow: hidden;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: normal;
+  color: #111;
+}
+
+:root {
+  --left-gap: 0px;
+  --right-gap: 0px;
+  --eleft-gap: 0px;
+  --eright-gap: 0px;
+}
+
+// #mainwrapper{
+//   &::before{ content: ""; position: absolute; width: 0; border-left: 1px solid #000; height: 100%; z-index: 5; }
+//   &::after{ content: ""; position: absolute; width: 0; right: 0; border-left: 1px solid #000; height: 100%; z-index: 5; }
+// }
+
+#wrapper {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  font-family: "SassoonSansforOUP_Regular";
+  overflow: hidden;
+  
+  video{ background-color:rgba(255, 255, 255, 0.1) }
+
+  .home {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .home:before {
+    content: "";
+    background-image: url(../ui/img/pattern_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  // ScreenSwitchAnimation
+  .fadeIn {
+    animation: 0.5s fadeIn forwards;
+    height: 100%;
+    width: 100%;
+  }
+
+  .fadeOut {
+    animation: 0.5s fadeOut forwards;
+    height: 100%;
+    width: 100%;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0px, 0px);
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translate(0px, 0px);
+    }
+    to {
+      opacity: 0;
+      transform: translate(0px, 0px);
+    }
+  }
+  // ScreenSwitchAnimation
+
+  // Suspence component
+  .suspense {
+    width: 100%;
+    height: 100%;
+    background-color: #032b44;
+  }
+  // Suspence Component
+
+  header {
+    display: flex;
+    padding: 20px 50px 0;
+    box-sizing: border-box;
+    z-index: 1;
+    min-height: 150px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .logo {
+      margin-top: 40px;
+      outline: none;
+      img {
+        width: 99px;
+        height: auto;
+      }
+    }
+    .hdr_btn {
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+    .header_text {
+      margin: 30px auto 0;
+      font-size: 32px;
+      color: #fff;
+      letter-spacing: 1px;
+      display: inline-flex;
+      font-weight: bold;
+      align-items: center;
+      font-family: "SassoonSansforOUP_Bold";
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 6px;
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+    height: 60px;
+    align-items: center;
+    .link_ftr {
+      color: #101d86;
+      font-size: 22px;
+      text-transform: uppercase;
+      text-decoration: none;
+      background-image: url(../ui/img/arrow.png);
+      background-repeat: no-repeat;
+      background-position: left 1px;
+      background-size: 10px auto;
+      padding-left: 17px;
+      letter-spacing: 0.4px;
+      font-family: "SassoonSansforOUP_Medium";
+    }
+    .copyright {
+      color: #101d86;
+      padding-left: 10px;
+      font-size: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      display: inline-flex;
+      justify-content: normal;
+      letter-spacing: 0.4px;
+      font-family: "SassoonSansforOUP_Medium";
+    }
+
+    .ftr_txt {
+      margin-left: auto;
+      color: #101d86;
+      font-size: 30px;
+      text-transform: uppercase;
+      font-family: "SassoonSansforOUP_Bold";
+      padding-top: 10px;
+    }
+  }
+
+  .home {
+    header {
+      .logo {
+        img {
+          width: 157px;
+          height: 157px;
+        }
+      }
+      .header_text {
+        font-size: 60px;
+        padding-top: 0;
+        margin-top: 0;
+      }
+    }
+    .home_content {
+      width: 100%;
+      height: 100%;
+      background-image: url(img/intro_center_img.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .anim_1 {
+        position: absolute;
+        top: 480px;
+        left: -100px;
+        opacity: 0;
+        animation: anim1 0.3s forwards;
+        animation-delay: 0.6s;
+      }
+      @keyframes anim1 {
+        0% {
+          opacity: 0;
+          top: 480px;
+          left: -100px;
+        }
+        100% {
+          top: 400px;
+          left: 170px;
+          opacity: 1;
+        }
+      }
+      .anim_2 {
+        position: absolute;
+        left: 0px;
+        bottom: -200px;
+        animation: anim2 0.3s forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+      }
+      @keyframes anim2 {
+        0% {
+          opacity: 0;
+          bottom: -200px;
+          left: 0px;
+        }
+        100% {
+          bottom: 440px;
+          left: 490px;
+          opacity: 1;
+        }
+      }
+      .anim_3 {
+        position: absolute;
+        top: -100px;
+        right: -350px;
+        animation: anim3 0.3s forwards;
+        animation-delay: 0.6s;
+      }
+      @keyframes anim3 {
+        0% {
+          opacity: 0;
+          top: -100px;
+          right: -350px;
+        }
+        100% {
+          top: 600px;
+          right: 190px;
+          opacity: 1;
+        }
+      }
+
+      .col_go {
+        position: absolute;
+        left: 702px;
+        top: 795px;
+
+        .goButton {
+          background: none;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          width: 204px;
+          height: 206px;
+        }
+      }
+    }
+  }
+
+  .before,
+  .lowercase,
+  .uppercase,
+  .num,
+  .words,
+  .own {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .main_content {
+    margin-top: 200px;
+    position: relative;
+    .layer_1 {
+      position: absolute;
+      top: 150px;
+      left: 30px;
+    }
+    .layer_2 {
+      position: absolute;
+      top: 30px;
+      right: 15px;
+    }
+    .layer_3 {
+      position: absolute;
+      top: 545px;
+      right: 42px;
+    }
+    .screen_wrap {
+      height: 750px;
+      width: 1157px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+
+      .screen_1 {
+        width: 1157px;
+        height: auto;
+        margin: 0 auto 0;
+        position: relative;
+
+        .navTabContent {
+          background: #fff;
+          border-radius: 40px;
+          padding: 90px 40px 30px;
+          box-sizing: border-box;
+          width: 100%;
+          height: 750px;
+          box-shadow: 0 3px 7px #333;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .navTab {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1;
+          position: absolute;
+          top: -25px;
+          left: 0;
+          right: 0;
+
+          li {
+            display: inline-block;
+            span {
+              background: #fff;
+              font-size: 32px;
+              color: #0580b7;
+              padding: 21px 20px;
+              border-radius: 40px;
+              box-shadow: 0 0 5px #999;
+              margin: 0 16px;
+              min-width: 220px;
+              display: inline-flex;
+              justify-content: center;
+              cursor: pointer;
+              font-family: "SassoonSansforOUP_Bold";
+              transition: all 0.2s ease;
+            }
+          }
+          li:hover {
+            span {
+              background-color: #ccecf4;
+            }
+          }
+          li.active {
+            span {
+              background-color: #ccecf4;
+            }
+          }
+        }
+      }
+
+      .letterTable {
+        background: #fff;
+        border-radius: 36px;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px #333;
+        padding: 20px 30px 30px;
+        height: 280px;
+        position: relative;
+      }
+      .letterTxt {
+        color: #101d86;
+        font-size: 30px;
+        font-family: "SassoonSansforOUP_Bold";
+        margin-bottom: 10px;
+        display: flex;
+        padding-right: 10px;
+        box-sizing: border-box;
+
+        .casing {
+          display: flex;
+          margin-left: auto;
+          img {
+            width: 10px;
+            height: auto;
+            margin-right: 6px;
+          }
+          .caseL {
+            cursor: pointer;
+          }
+          .caseU {
+            text-transform: uppercase;
+            margin-left: 40px;
+            cursor: pointer;
+          }
+
+          .caseL.false {
+            color: #b6badb;
+          }
+          .caseU.false {
+            color: #b6badb;
+          }
+          .caseL.true {
+            color: #101d86;
+          }
+          .caseU.true {
+            color: #101d86;
+          }
+        }
+      }
+      .letterBox {
+        display: flex;
+        flex-wrap: wrap;
+
+        .letter {
+          background-color: #e7e8f3;
+          border: 1px solid #101d86;
+          border-right: none;
+          border-top: none;
+          font-size: 50px;
+          color: #101d86;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 83px;
+          height: 90px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-family: "Edu NSW ACT Foundation", cursive;
+        }
+        .letter:hover{
+          background-color: #7880b3;
+          color: #fff;
+        }
+        .letter.active {
+          background-color: #101d86;
+          color: #fff;
+        }
+        .letter:nth-child(-n + 13) {
+          border-top: 1px solid #101d86;
+        }
+        .letter:nth-of-type(13),
+        .letter:nth-of-type(26) {
+          border-right: 1px solid #101d86;
+        }
+      }
+
+      .writtenParent {
+        display: flex;
+        margin-top: 2.5%;
+
+        .writtenTable {
+          background-color: #fff;
+          box-sizing: border-box;
+          padding: 30px 35px 20px;
+          box-shadow: 0 0 10px #333;
+          border-radius: 36px;
+          display: flex;
+          flex: 0 0 73%;
+          max-width: 73%;
+          height: 440px;
+          flex-direction: column;
+          overflow: hidden;
+
+          .guidelineHeader {
+            display: flex;
+            height: 80px;
+            padding-bottom: 10px;
+            z-index: 1;
+
+            .guidelineTxt {
+              flex: 0 0 67%;
+              max-width: 67%;
+              color: #101d86;
+              font-size: 30px;
+              font-family: "SassoonSansforOUP_Bold";
+              padding-right: 20px;
+              box-sizing: border-box;
+              .clearBtn{
+                background-image: url(./img/clear.png);
+                background-repeat: no-repeat;
+                width: 34px;
+                height: 38px;
+                cursor: pointer;
+              }
+            }
+            .onOff {
+              flex: 0 0 33%;
+              max-width: 33%;
+              display: flex;
+              flex-direction: column;
+              align-items: end;
+
+              .switch {
+                color: #b6badb;
+                font-size: 30px;
+                font-family: "SassoonSansforOUP_Bold";
+
+                .txt {
+                  margin-right: 10px;
+                }
+                .onBtn {
+                  margin-right: 10px;
+                }
+                .onOffBtn {
+                  cursor: pointer;
+                }
+                .onOffBtn:hover,
+                .onOffBtn.active {
+                  color: #101d86;
+                }
+              }
+              .switch:first-child {
+                margin-bottom: 5px;
+              }
+
+              .switch {
+                display: flex;
+              }
+            }
+          }
+
+          .traceArea.false {
+            background-image: none;
+          }
+          .traceArea.true {
+            background-image: url(../ui/img/trace_img.png);
+          }
+
+          .traceArea {
+            height: 215px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center top;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            
+
+            .traceLetter {
+              height: 70px;
+              width: 150px;
+              margin: 0;
+              display: flex;
+              position: relative;
+              justify-content: center;
+              font-size: 172px;
+              font-family: "Edu NSW ACT Foundation", cursive;
+              span {
+                line-height: 0;
+                position: absolute;
+                top: 7px;
+              }
+            }
+          }
+          .traceArea.active {
+            background: none;
+          }
+          .startNote {
+            background-color: #e7e8f3;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+            margin-top: 18px;
+            color: #101d86;
+            font-size: 20px;
+            font-family: "SassoonSansforOUP_Medium";
+            img {
+              width: 14px;
+              height: auto;
+              margin-right: 8px;
+            }
+          }
+        }
+        .letterWithImg {
+          position: relative;
+          background-color: #fff;
+          box-sizing: border-box;
+          padding: 30px 20px 100px;
+          box-shadow: 0 0 10px #333;
+          border-radius: 36px;
+          display: flex;
+          flex: 0 0 24.5%;
+          max-width: 24.5%;
+          margin-left: 2.5%;
+          flex-direction: row;
+          align-items: center;
+          height: 440px;
+
+          img {
+            width: 100%;
+            max-height: 250px;
+          }
+
+          .imgTxt {
+            position: absolute;
+            bottom: 34px;
+            color: #101d86;
+            font-size: 50px;
+            margin-top: 35px;
+            font-family: "Edu NSW ACT Foundation", cursive;
+            width: 100%;
+            text-align: center;
+            left: 0;
+          }
+        }
+        .chooseWord {
+          background-color: #fff;
+          box-sizing: border-box;
+          padding: 20px;
+          box-shadow: 0 0 10px #333;
+          border-radius: 36px;
+          display: flex;
+          flex: 0 0 24.5%;
+          max-width: 24.5%;
+          margin-right: 2.5%;
+          flex-direction: column;
+          height: 440px;
+
+          .txtTitle {
+            color: #101d86;
+            font-size: 30px;
+            font-family: "SassoonSansforOUP_Bold";
+            margin-bottom: 15px;
+          }
+          .leftLink {
+            display: flex;
+            flex-direction: column;
+            height: 346px;
+            overflow: hidden;
+            overflow-y: auto;
+
+            a {
+              background-color: #fff;
+              padding: 9px 20px;
+              border-radius: 10px;
+              font-size: 30px;
+              text-decoration: none;
+              margin-bottom: 2px;
+              transition: all 0.2s ease;
+              color: #101d86;
+              font-family: "Edu NSW ACT Foundation", cursive;
+            }
+            a:hover{
+              background-color: #7880b3;
+              color: #fff;
+            }
+            a.active {
+              background-color: #101d86;
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      .screen_2 {
+        .letterBox{
+          .letter:nth-of-type(27),
+          .letter:nth-of-type(28),
+          .letter:nth-of-type(29),
+          .letter:nth-of-type(30){ display: none; }
+        }
+        .writtenParent {
+          .writtenTable {
+            .traceArea {
+              video{
+                margin-top: 0px;
+              }
+              .b {
+                font-size: 183px;
+                span {
+                  top: 2px;
+                }
+              }
+              .d {
+                font-size: 183px;
+                span {
+                  top: 2px;
+                }
+              }
+              .f {
+                font-size: 183px;
+                span {
+                  top: 2px;
+                }
+              }
+              .g {
+                font-size: 183px;
+                span {
+                  top: 7px;
+                }
+              }
+              .h {
+                font-size: 183px;
+                span {
+                  top: 3px;
+                }
+              }
+              .j {
+                font-size: 183px;
+                span {
+                  top: 7px;
+                }
+              }
+              .k {
+                font-size: 183px;
+                span {
+                  top: 3px;
+                }
+              }
+              .l {
+                font-size: 183px;
+                span {
+                  top: 3px;
+                }
+              }
+              .p {
+                font-size: 183px;
+                span {
+                  top: 7px;
+                }
+              }
+              .q {
+                font-size: 183px;
+                span {
+                  top: 7px;
+                }
+              }
+              .t {
+                font-size: 183px;
+                span {
+                  top: 3px;
+                }
+              }
+              .y {
+                font-size: 183px;
+                span {
+                  top: 7px;
+                }
+              }
+            }
+          }
+        }
+        /*--sprite-animation-css--*/
+        .end{ background-position: right 0;}
+        .start.a{ animation: anim_a 2s steps(62) forwards; }
+        .start.b{ animation: anim_b 2s steps(59) forwards; }
+        .start.c{ animation: anim_c 2s steps(49) forwards; }
+        .start.d{ animation: anim_d 2s steps(79) forwards; }
+        .start.e{ animation: anim_e 2s steps(61) forwards; }
+        .start.f{ animation: anim_f 2s steps(61) forwards; }
+        .start.g{ animation: anim_g 2s steps(73) forwards; }
+        .start.h{ animation: anim_h 2s steps(78) forwards; }
+        .start.i{ animation: anim_i 2s steps(53) forwards; }
+        .start.j{ animation: anim_j 2s steps(57) forwards; }
+        .start.k{ animation: anim_k 2s steps(99) forwards; }
+        .start.l{ animation: anim_l 2s steps(26) forwards; }
+        .start.m{ animation: anim_m 2s steps(103) forwards; }
+        .start.n{ animation: anim_n 2s steps(62) forwards; }
+        .start.o{ animation: anim_o 2s steps(57) forwards; }
+        .start.p{ animation: anim_p 2s steps(69) forwards; }
+        .start.q{ animation: anim_q 2s steps(93) forwards; }
+        .start.r{ animation: anim_r 2s steps(49) forwards; }
+        .start.s{ animation: anim_s 2s steps(51) forwards; }
+        .start.t{ animation: anim_t 2s steps(68) forwards; }
+        .start.u{ animation: anim_u 2s steps(68) forwards; }
+        .start.v{ animation: anim_v 2s steps(42) forwards; }
+        .start.w{ animation: anim_w 2s steps(88) forwards; }
+        .start.x{ animation: anim_x 2s steps(56) forwards; }
+        .start.y{ animation: anim_y 2s steps(71) forwards; }
+        .start.z{ animation: anim_z 2s steps(60) forwards; }
+
+        @keyframes anim_a { 100% { background-position: -2976px 0; } }
+        @keyframes anim_b { 100% { background-position: -2832px 0; } }
+        @keyframes anim_c { 100% { background-position: -2254px 0; } }
+        @keyframes anim_d { 100% { background-position: -4424px 0; } }
+        @keyframes anim_e { 100% { background-position: -2562px 0; } }
+        @keyframes anim_f { 100% { background-position: -4148px 0; } }
+        @keyframes anim_g { 100% { background-position: -4088px 0; } }
+        @keyframes anim_h { 100% { background-position: -3900px 0; } }
+        @keyframes anim_i { 100% { background-position: -1325px 0; } }
+        @keyframes anim_j { 100% { background-position: -3705px 0; } }
+        @keyframes anim_k { 100% { background-position: -5148px 0; } }
+        @keyframes anim_l { 100% { background-position: -650px 0; } }
+        @keyframes anim_m { 100% { background-position: -8446px 0; } }
+        @keyframes anim_n { 100% { background-position: -3100px 0; } }
+        @keyframes anim_o { 100% { background-position: -2850px 0; } }
+        @keyframes anim_p { 100% { background-position: -3795px 0; } }
+        @keyframes anim_q { 100% { background-position: -5766px 0; } }
+        @keyframes anim_r { 100% { background-position: -2352px 0; } }
+        @keyframes anim_s { 100% { background-position: -2244px 0; } }
+        @keyframes anim_t { 100% { background-position: -3264px 0; } }
+        @keyframes anim_u { 100% { background-position: -3400px 0; } }
+        @keyframes anim_v { 100% { background-position: -2100px 0; } }
+        @keyframes anim_w { 100% { background-position: -7216px 0; } }
+        @keyframes anim_x { 100% { background-position: -2912px 0; } }
+        @keyframes anim_y { 100% { background-position: -4047px 0; } }
+        @keyframes anim_z { 100% { background-position: -3000px 0; } }
+      }
+
+      .screen_3 {
+        .letterBox{
+          .letter:nth-of-type(27),
+          .letter:nth-of-type(28),
+          .letter:nth-of-type(29),
+          .letter:nth-of-type(30){ display: none; }
+        }
+        .writtenParent {
+          .writtenTable {
+            .traceArea {
+              video{
+                margin-top: 0px;
+              }
+              .traceLetter {
+                font-size: 182px;
+                span {
+                  top: 2px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .screen_4 {
+        .letterBox {
+          .letter {
+            width: 217px;
+          }
+          .letter:nth-of-type(5) {
+            border-right: 1px solid #101d86;
+          }
+          .letter:nth-of-type(10) {
+            border-right: 1px solid #101d86;
+          }
+        }
+        .writtenParent {
+          .writtenTable {
+            .traceArea {
+             
+              .traceLetter {
+                
+                font-size: 206px;
+                span {
+                  top: -7px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .screen_5 {
+        .letterBox{
+          .letter:nth-of-type(27),
+          .letter:nth-of-type(28),
+          .letter:nth-of-type(29),
+          .letter:nth-of-type(30){ display: none; }
+        }
+        .letterTable {
+          z-index: 1;
+        }
+        .letterTable:before {
+          content: "";
+          background-image: url(../ui/img/arrow_yellow_b.png);
+          background-repeat: no-repeat;
+          background-position: center top;
+          background-size: contain;
+          width: 89px;
+          height: 45px;
+          position: absolute;
+          top: 99.5%;
+          left: 112px;
+        }
+        .writtenParent {
+          .chooseWord {
+            position: relative;
+          }
+          .traceArea {
+            background-repeat: repeat;
+            background-size: contain;
+            .traceLetter {
+              width: auto;
+              height: 220px;
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center top;
+              // display: flex;
+              // justify-content: space-around;
+              align-items: center;
+          
+
+              span {
+                position: relative;
+                top: 5px;
+              }
+            }
+          }
+
+          .chooseWord:before {
+            content: "";
+            background-image: url(../ui/img/arrow_yellow_r.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: contain;
+            width: 45px;
+            height: 89px;
+            position: absolute;
+            top: 55px;
+            left: 282px;
+          }
+        }
+      }
+
+      .screen_6 {
+        .letterTable {
+          height: 370px;
+        }
+        .letterBox {
+          .letter:nth-of-type(27),
+          .letter:nth-of-type(28),
+          .letter:nth-of-type(29) { display: none; }
+          .letter:nth-of-type(31) {
+            width: 251px;
+            border-right: 1px solid #101d86;
+            margin-right: 9px;
+          }
+          .letter:nth-of-type(30){
+            margin-left: auto;
+            background-image: url(./img/backspace.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 40px auto;
+            color: transparent;
+            font-size: 0;
+            width: 82px;
+            height: 90px;
+          }
+          .letter:nth-of-type(30):hover,
+          .letter:nth-of-type(30).active{
+            background-image: url(./img/backspace_w.png);
+          }
+        }
+        .writtenParent {
+          .writtenTable {
+            flex: 0 0 100%;
+            max-width: 100%;
+            height: 350px;
+
+            .traceArea {
+              background-repeat: repeat;
+              background-size: contain;
+              .traceLetter {
+                width: auto;
+                height: 220px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center top;
+                // display: flex;
+                // justify-content: space-around;
+                align-items: center;
+            
+
+                span {
+                  position: relative;
+                  top: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .ftrNav {
+      padding: 20px;
+      box-sizing: border-box;
+      .ftrNavTab {
+        margin: 10px 0 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        a {
+          color: transparent;
+          display: inline-flex;
+          margin: 0 8px;
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+          cursor: pointer;
+          transition: all 0.1s ease;
+          text-decoration: none;
+        }
+       
+        a:nth-of-type(1) {
+          width: 231px;
+          height: 79px;
+          background-image: url(./img/NavBtn_1.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        a:hover:nth-of-type(1),
+        a.active:nth-of-type(1) {
+          background-image: url(./img/NavBtn_1_h.png);
+        }
+        a:nth-of-type(2) {
+          width: 171px;
+          height: 79px;
+          background-image: url(./img/NavBtn_2.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        a:hover:nth-of-type(2),
+        a.active:nth-of-type(2) {
+          background-image: url(./img/NavBtn_2_h.png);
+        }
+        a:nth-of-type(3) {
+          width: 171px;
+          height: 79px;
+          background-image: url(./img/NavBtn_3.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        a:hover:nth-of-type(3),
+        a.active:nth-of-type(3) {
+          background-image: url(./img/NavBtn_3_h.png);
+        }
+        a:nth-of-type(4) {
+          width: 171px;
+          height: 79px;
+          background-image: url(./img/NavBtn_4.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        a:hover:nth-of-type(4),
+        a.active:nth-of-type(4) {
+          background-image: url(./img/NavBtn_4_h.png);
+        }
+        a:nth-of-type(5) {
+          width: 231px;
+          height: 79px;
+          background-image: url(./img/NavBtn_5.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        a:hover:nth-of-type(5),
+        a.active:nth-of-type(5) {
+          background-image: url(./img/NavBtn_5_h.png);
+        }
+        a:nth-of-type(6) {
+          width: 231px;
+          height: 79px;
+          background-image: url(./img/NavBtn_6.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        a:hover:nth-of-type(6),
+        a.active:nth-of-type(6) {
+          background-image: url(./img/NavBtn_6_h.png);
+        }
+        
+      }
+    }
+  }
+}
