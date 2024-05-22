@@ -299,7 +299,7 @@
       "refImage": "/media/images/'.png",
       "refWord": "zebra",
       "refAnim": "/media/videos/lowercase/'.webm",
-      "refSprite": "/media/sprite/lowercase/'.png",
+      "refSprite": "/media/sprite/lowercase/colon.png",
       "count": 5,
       "width": 20,
       "height": 250
@@ -316,6 +316,7 @@
       "mleft": "-17px",
       "mright": "4px"
     },
+    
     "Xcross":{
       
     }

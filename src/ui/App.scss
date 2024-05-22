@@ -808,33 +808,36 @@ body {
           }
         }
         /*--sprite-animation-css--*/
+        
         .end{ background-position: right 0;}
-        .start.a{ animation: anim_a 2s steps(62) forwards; }
-        .start.b{ animation: anim_b 2s steps(59) forwards; }
-        .start.c{ animation: anim_c 2s steps(49) forwards; }
-        .start.d{ animation: anim_d 2s steps(79) forwards; }
-        .start.e{ animation: anim_e 2s steps(61) forwards; }
-        .start.f{ animation: anim_f 2s steps(61) forwards; }
-        .start.g{ animation: anim_g 2s steps(73) forwards; }
-        .start.h{ animation: anim_h 2s steps(78) forwards; }
-        .start.i{ animation: anim_i 2s steps(53) forwards; }
-        .start.j{ animation: anim_j 2s steps(57) forwards; }
-        .start.k{ animation: anim_k 2s steps(99) forwards; }
-        .start.l{ animation: anim_l 2s steps(26) forwards; }
-        .start.m{ animation: anim_m 2s steps(103) forwards; }
-        .start.n{ animation: anim_n 2s steps(62) forwards; }
-        .start.o{ animation: anim_o 2s steps(57) forwards; }
-        .start.p{ animation: anim_p 2s steps(69) forwards; }
-        .start.q{ animation: anim_q 2s steps(93) forwards; }
-        .start.r{ animation: anim_r 2s steps(49) forwards; }
-        .start.s{ animation: anim_s 2s steps(51) forwards; }
-        .start.t{ animation: anim_t 2s steps(68) forwards; }
-        .start.u{ animation: anim_u 2s steps(68) forwards; }
-        .start.v{ animation: anim_v 2s steps(42) forwards; }
-        .start.w{ animation: anim_w 2s steps(88) forwards; }
-        .start.x{ animation: anim_x 2s steps(56) forwards; }
-        .start.y{ animation: anim_y 2s steps(71) forwards; }
-        .start.z{ animation: anim_z 2s steps(60) forwards; }
+        .start.lettar_a{ animation: anim_a 2s steps(62) forwards; }
+        .start.lettar_b{ animation: anim_b 2s steps(59) forwards; }
+        .start.lettar_c{ animation: anim_c 2s steps(49) forwards; }
+        .start.lettar_d{ animation: anim_d 2s steps(79) forwards; }
+        .start.lettar_e{ animation: anim_e 2s steps(61) forwards; }
+        .start.lettar_f{ animation: anim_f 2s steps(61) forwards; }
+        .start.lettar_g{ animation: anim_g 2s steps(73) forwards; }
+        .start.lettar_h{ animation: anim_h 2s steps(78) forwards; }
+        .start.lettar_i{ animation: anim_i 2s steps(53) forwards; }
+        .start.lettar_j{ animation: anim_j 2s steps(57) forwards; }
+        .start.lettar_k{ animation: anim_k 2s steps(99) forwards; }
+        .start.lettar_l{ animation: anim_l 2s steps(26) forwards; }
+        .start.lettar_m{ animation: anim_m 2s steps(103) forwards; }
+        .start.lettar_n{ animation: anim_n 2s steps(62) forwards; }
+        .start.lettar_o{ animation: anim_o 2s steps(57) forwards; }
+        .start.lettar_p{ animation: anim_p 2s steps(69) forwards; }
+        .start.lettar_q{ animation: anim_q 2s steps(93) forwards; }
+        .start.lettar_r{ animation: anim_r 2s steps(49) forwards; }
+        .start.lettar_s{ animation: anim_s 2s steps(51) forwards; }
+        .start.lettar_t{ animation: anim_t 2s steps(68) forwards; }
+        .start.lettar_u{ animation: anim_u 2s steps(68) forwards; }
+        .start.lettar_v{ animation: anim_v 2s steps(42) forwards; }
+        .start.lettar_w{ animation: anim_w 2s steps(88) forwards; }
+        .start.lettar_x{ animation: anim_x 2s steps(56) forwards; }
+        .start.lettar_y{ animation: anim_y 2s steps(71) forwards; }
+        .start.lettar_z{ animation: anim_z 2s steps(60) forwards; }
+        .start.colon{ animation: anim_colon 2s steps(21) forwards; }
+        
 
         @keyframes anim_a { 100% { background-position: -2976px 0; } }
         @keyframes anim_b { 100% { background-position: -2832px 0; } }
@@ -862,6 +865,8 @@ body {
         @keyframes anim_x { 100% { background-position: -2912px 0; } }
         @keyframes anim_y { 100% { background-position: -4047px 0; } }
         @keyframes anim_z { 100% { background-position: -3000px 0; } }
+        @keyframes anim_colon { 100% { background-position: -420px 0; } }
+        
       }
 
       .screen_3 {
@@ -889,32 +894,33 @@ body {
 
         /*--sprite-animation-css--*/
         .end{ background-position: right 0;}
-        .start.A{ animation: anim_A 2s steps(61) forwards; }
-        .start.B{ animation: anim_B 2s steps(100) forwards; }
-        .start.C{ animation: anim_C 2s steps(58) forwards; }
-        .start.D{ animation: anim_D 2s steps(77) forwards; }
-        .start.E{ animation: anim_E 2s steps(71) forwards; }
-        .start.F{ animation: anim_F 2s steps(60) forwards; }
-        .start.G{ animation: anim_G 2s steps(73) forwards; }
-        .start.H{ animation: anim_H 2s steps(67) forwards; }
-        .start.I{ animation: anim_I 2s steps(25) forwards; }
-        .start.J{ animation: anim_J 2s steps(47) forwards; }
-        .start.K{ animation: anim_K 2s steps(86) forwards; }
-        .start.L{ animation: anim_L 2s steps(50) forwards; }
-        .start.M{ animation: anim_M 2s steps(83) forwards; }
-        .start.N{ animation: anim_N 2s steps(70) forwards; }
-        .start.O{ animation: anim_O 2s steps(67) forwards; }
-        .start.P{ animation: anim_P 2s steps(68) forwards; }
-        .start.Q{ animation: anim_Q 2s steps(77) forwards; }
-        .start.R{ animation: anim_R 2s steps(102) forwards; }
-        .start.S{ animation: anim_S 2s steps(64) forwards; }
-        .start.T{ animation: anim_T 2s steps(51) forwards; }
-        .start.U{ animation: anim_U 2s steps(70) forwards; }
-        .start.V{ animation: anim_V 2s steps(47) forwards; }
-        .start.W{ animation: anim_W 2s steps(78) forwards; }
-        .start.X{ animation: anim_X 2s steps(55) forwards; }
-        .start.Y{ animation: anim_Y 2s steps(45) forwards; }
-        .start.Z{ animation: anim_Z 2s steps(63) forwards; }
+        .start.lettar_A{ animation: anim_A 2s steps(61) forwards; }
+        .start.lettar_B{ animation: anim_B 2s steps(100) forwards; }
+        .start.lettar_C{ animation: anim_C 2s steps(58) forwards; }
+        .start.lettar_D{ animation: anim_D 2s steps(77) forwards; }
+        .start.lettar_E{ animation: anim_E 2s steps(71) forwards; }
+        .start.lettar_F{ animation: anim_F 2s steps(60) forwards; }
+        .start.lettar_G{ animation: anim_G 2s steps(73) forwards; }
+        .start.lettar_H{ animation: anim_H 2s steps(67) forwards; }
+        .start.lettar_I{ animation: anim_I 2s steps(25) forwards; }
+        .start.lettar_J{ animation: anim_J 2s steps(47) forwards; }
+        .start.lettar_K{ animation: anim_K 2s steps(86) forwards; }
+        .start.lettar_L{ animation: anim_L 2s steps(50) forwards; }
+        .start.lettar_M{ animation: anim_M 2s steps(83) forwards; }
+        .start.lettar_N{ animation: anim_N 2s steps(70) forwards; }
+        .start.lettar_O{ animation: anim_O 2s steps(67) forwards; }
+        .start.lettar_P{ animation: anim_P 2s steps(68) forwards; }
+        .start.lettar_Q{ animation: anim_Q 2s steps(77) forwards; }
+        .start.lettar_R{ animation: anim_R 2s steps(102) forwards; }
+        .start.lettar_S{ animation: anim_S 2s steps(64) forwards; }
+        .start.lettar_T{ animation: anim_T 2s steps(51) forwards; }
+        .start.lettar_U{ animation: anim_U 2s steps(70) forwards; }
+        .start.lettar_V{ animation: anim_V 2s steps(47) forwards; }
+        .start.lettar_W{ animation: anim_W 2s steps(78) forwards; }
+        .start.lettar_X{ animation: anim_X 2s steps(55) forwards; }
+        .start.lettar_Y{ animation: anim_Y 2s steps(45) forwards; }
+        .start.lettar_Z{ animation: anim_Z 2s steps(63) forwards; }
+        
 
         @keyframes anim_A { 100% { background-position: -4880px 0; } }
         @keyframes anim_B { 100% { background-position: -7500px 0; } }
@@ -942,6 +948,7 @@ body {
         @keyframes anim_X { 100% { background-position: -4950px 0; } }
         @keyframes anim_Y { 100% { background-position: -4050px 0; } }
         @keyframes anim_Z { 100% { background-position: -5670px 0; } }
+        
 
       }
 
@@ -974,16 +981,16 @@ body {
 
         /*--sprite-animation-css--*/
         .end{ background-position: right 0;}
-        .start.A{ animation: anim_1 2s steps(24) forwards; }
-        .start.B{ animation: anim_2 2s steps(64) forwards; }
-        .start.C{ animation: anim_3 2s steps(77) forwards; }
-        .start.D{ animation: anim_4 2s steps(66) forwards; }
-        .start.E{ animation: anim_5 2s steps(88) forwards; }
-        .start.F{ animation: anim_6 2s steps(69) forwards; }
-        .start.G{ animation: anim_7 2s steps(47) forwards; }
-        .start.H{ animation: anim_8 2s steps(80) forwards; }
-        .start.I{ animation: anim_9 2s steps(85) forwards; }
-        .start.J{ animation: anim_10 2s steps(96) forwards; }
+        .start.lettar_1{ animation: anim_1 1s steps(24) forwards; }
+        .start.lettar_2{ animation: anim_2 2s steps(64) forwards; }
+        .start.lettar_3{ animation: anim_3 2s steps(77) forwards; }
+        .start.lettar_4{ animation: anim_4 2s steps(66) forwards; }
+        .start.lettar_5{ animation: anim_5 2s steps(88) forwards; }
+        .start.lettar_6{ animation: anim_6 2s steps(69) forwards; }
+        .start.lettar_7{ animation: anim_7 2s steps(47) forwards; }
+        .start.lettar_8{ animation: anim_8 2s steps(80) forwards; }
+        .start.lettar_9{ animation: anim_9 2s steps(85) forwards; }
+        .start.lettar_10{ animation: anim_10 2s steps(96) forwards; }
         
 
         @keyframes anim_1 { 100% { background-position: -600px 0; } }
@@ -1112,6 +1119,14 @@ body {
             left: 282px;
           }
         }
+        .start.colon{ animation: anim_colon 2s steps(21) forwards; }
+        .start.X{ animation: anim_X 2s steps(55) forwards; }
+        .start.hyphen{ animation: anim_hyphen 1s steps(21) forwards; }
+
+        @keyframes anim_colon { 100% { background-position: -420px 0; } }
+        @keyframes anim_X { 100% { background-position: -4950px 0; } }
+        @keyframes anim_hyphen { 100% { background-position: -966px 0; } }
+
       }
 
       .screen_6 {
@@ -1232,6 +1247,7 @@ body {
               
 
         @keyframes anim_space { 100% { background-position: -1534px 0; } }
+        
       }
     }
 
