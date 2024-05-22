@@ -20,17 +20,18 @@ const WritingArea = () => {
     setSelectedWord,
     traceToggle,
     setTraceToggle,
-    newWord, setNewWord,
-    onClickState, traced,
-    playonetime, setPlayone
+    newWord,
+    setNewWord,
+    onClickState,
+    traced,
+    playonetime,
+    setPlayone,
   } = useContext(GlobalContext);
-
 
   const [playedindex, setplayedindex] = useState<any>(false);
   const [playedvid, setPlayedvid] = useState<any>(false);
 
   const [st, setSt] = useState(0);
-
 
   const clearPage = () => {
     setActiveLetter("");
@@ -42,18 +43,23 @@ const WritingArea = () => {
   let arr: any = [];
   const renderMultiple = () => {
     console.log(selectedNode);
-    
+
     if (selectedNode) {
       for (let index = 0; index < repeatation; index++) {
         if (selectedNode["refAnim"] && !["/own", "/words"].includes(pathname))
           arr.push(
-            // <video 
+            // <video
             <div
-
               key={index}
               className={`${activeLetter}`}
-              id={(activeLetter) + (index + 1)}
-              style={{width:selectedNode["width"], height:selectedNode["height"], backgroundImage:`url(${process.env.PUBLIC_URL + selectedNode["refSprite"]})`}}
+              id={activeLetter + (index + 1)}
+              style={{
+                width: selectedNode["width"],
+                height: selectedNode["height"],
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + selectedNode["refSprite"]
+                })`,
+              }}
               onEnded={() => {
                 if (
                   index + 1 !== repeatation &&
@@ -63,22 +69,24 @@ const WritingArea = () => {
                   elements[index + 1].play();
                 }
               }}
-            onAnimationEnd={()=>{
-              if (
-                index + 1 !== repeatation &&
-                elements.length &&
-                traceToggle
-              ) {
-                elements[index].classList.add(`end`)
-                elements[index].classList.remove(`start`)
-                elements[index + 1].classList.add(`start`)
-              }else if(index + 1 == repeatation &&
-                elements.length &&
-                traceToggle){
+              onAnimationEnd={() => {
+                if (
+                  index + 1 !== repeatation &&
+                  elements.length &&
+                  traceToggle
+                ) {
+                  elements[index].classList.add(`end`);
+                  elements[index].classList.remove(`start`);
+                  elements[index + 1].classList.add(`start`);
+                } else if (
+                  index + 1 == repeatation &&
+                  elements.length &&
+                  traceToggle
+                ) {
                   resetVideos();
                   playLetterAnimation();
-              }            
-            }}
+                }
+              }}
             />
           );
       }
@@ -86,156 +94,191 @@ const WritingArea = () => {
     } else return <></>;
   };
   let arrays: any = [];
-  const memoList = React.useMemo(() => newWord.split("").map((curr: any, index: any) => {
-    const node = data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr];
-    if (
-      data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][
-      curr
-      ]["refAnim"] &&
-      ["/own", "/words"].includes(pathname)
-    ) {
-      return (
-        // <video height={210} width={curr == curr.toLowerCase() ? (data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refWord"] === "space" ? 40 : 82) : 145}
-        <div
-          className={`${curr}`}
-          id={(curr) + (index + 1)}
+  const memoList = React.useMemo(
+    () =>
+      newWord.split("").map((curr: any, index: any) => {
+        const node =
+          data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr];
+        if (
+          data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr][
+            "refAnim"
+          ] &&
+          ["/own", "/words"].includes(pathname)
+        ) {
+          return (
+            // <video height={210} width={curr == curr.toLowerCase() ? (data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refWord"] === "space" ? 40 : 82) : 145}
+            <div
+              className={`${curr}`}
+              id={curr + (index + 1)}
+              onAnimationEnd={() => {
+                const traceArea = document.querySelector(".traceLetter");
+                let elementArr: any = traceArea ? traceArea.children : [];
+                if (elementArr) setElements([...elementArr]);
+                console.log(elementArr.length > index + 1);
 
-          // onEnded={() => {
-          //   const traceArea = document.querySelector(".traceLetter");
-          //   let elementArr: any = traceArea ? traceArea.children : [];
-          //   if (elementArr) setElements([...elementArr]);         
-          //   if (elementArr.length > index + 1) {
-          //     elementArr[index + 1].play();
-          //     setplayedindex(index + 1);
-          //   } else if (elementArr.length == index + 1) {
-          //     setPlayedvid(true);
-          //     setSt(index + 1);
-          //   }
-            
-          // }}
-          onAnimationEnd={()=>{
-            const traceArea = document.querySelector(".traceLetter");
-            let elementArr: any = traceArea ? traceArea.children : [];
-            if (elementArr) setElements([...elementArr]);    
-            console.log(elementArr.length, index + 1);         
-            if (elementArr.length > index + 1) {
-              elementArr[index].classList.add(`end`)
-              elementArr[index].classList.remove(`start`)
-              elementArr[index + 1].classList.add(`start`)
-              setplayedindex(index + 1);
-            } else if (elementArr.length == index + 1) {   
-              resetVideos();
-              [...elementArr][0]?.classList.add(`start`);
-              setPlayedvid(true);
-              setSt(index + 1);
-            }
-          }}
-
-          style={{
-            marginRight: (node["mright"] ? node["mright"] : '0'),
-            marginLeft: (node["mleft"] ? node["mleft"] : '0'),
-            width:data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["width"], height:data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["height"], backgroundImage:`url(${process.env.PUBLIC_URL + data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refSprite"]})`
-          }}      
-       
-        ></div>
-
-      );
-    }
-
-
-
-  }), [newWord])
+                if (elementArr.length > index + 1) {
+                  elementArr[index].classList.add(`end`);
+                  elementArr[index].classList.remove(`start`);
+                  elementArr[index + 1].classList.add(`start`);
+                  setplayedindex(index + 1);
+                } else if (elementArr.length == index + 1) {
+                  resetVideos();
+                  const timeout = setTimeout(() => {
+                    playLetterAnimation();
+                    clearTimeout(timeout);
+                  }, 500);
+                  setPlayedvid(true);
+                  setSt(index + 1);
+                }
+              }}
+              style={{
+                marginRight: node["mright"] ? node["mright"] : "0",
+                marginLeft: node["mleft"] ? node["mleft"] : "0",
+                width:
+                  data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][
+                    curr
+                  ]["width"],
+                height:
+                  data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][
+                    curr
+                  ]["height"],
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL +
+                  data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][
+                    curr
+                  ]["refSprite"]
+                })`,
+              }}
+            ></div>
+          );
+        }
+      }),
+    [newWord]
+  );
 
   const renderSpecifiedWord = () => {
     if (pathname == "/own") {
-
-      return (
-        <div className={"traceLetter"}>
-          {memoList}
-
-        </div>
-      );
+      return <div className={"traceLetter"}>{memoList}</div>;
     }
     return (
       <div className={"traceLetter"}>
-        {selectedWord ?
-          (
-            selectedWord.split("").map((curr: any, index: any) => {
-              const node = data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr];
-              return (<video
-                key={index}
-                id={"vid" + (index + 1)}
-                onEnded={() => {
-                  if ( index + 1 !== elements.length && elements.length && traceToggle ) { elements[index + 1].play(); }
-                  if ( index + 1 == elements.length && elements.length && traceToggle ) { 
-                    resetVideos();
-                    playLetterAnimation();
-                   }
-
-                }}
-                style={{
-                  marginRight: (node["mright"] ? node["mright"] : '0'),
-                  marginLeft: (node["mleft"] ? node["mleft"] : '0')
-                }}
-                height={node["height"]}
-                width={ node["width"] }
-                src={process.env.PUBLIC_URL + data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refAnim"] || ""}
-              />
-              )
+        {selectedWord
+          ? selectedWord.split("").map((curr: any, index: any) => {
+              const node =
+                data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][
+                  curr
+                ];
+              return (
+                <>
+                  <div
+                    className={`${curr}`}
+                    id={curr + (index + 1)}
+                    onAnimationEnd={() => {
+                      if (
+                        index + 1 !== elements.length &&
+                        elements.length &&
+                        traceToggle
+                      ) {
+                        elements[index].classList.add(`end`);
+                        elements[index].classList.remove(`start`);
+                        elements[index + 1].classList.add(`start`);
+                      }
+                      if (
+                        index + 1 == elements.length &&
+                        elements.length &&
+                        traceToggle
+                      ) {
+                        resetVideos();
+                        playLetterAnimation();
+                      }
+                    }}
+                    style={{
+                      marginRight: node["mright"] ? node["mright"] : "0",
+                      marginLeft: node["mleft"] ? node["mleft"] : "0",
+                      width:
+                        data[
+                          curr == curr.toLowerCase() ? "lowercase" : "uppercase"
+                        ][curr]["width"],
+                      height:
+                        data[
+                          curr == curr.toLowerCase() ? "lowercase" : "uppercase"
+                        ][curr]["height"],
+                      backgroundImage: `url(${
+                        process.env.PUBLIC_URL +
+                        data[
+                          curr == curr.toLowerCase() ? "lowercase" : "uppercase"
+                        ][curr]["refSprite"]
+                      })`,
+                    }}
+                  ></div>
+                </>
+              );
             })
-
-          ) : (
-            ""
-          )}
-
-
+          : ""}
       </div>
     );
   };
 
   useEffect(() => {
     // console.log(activeLetter);
-    if (activeLetter && (!selectedWord && pathname == "/own") && (activeLetter.toLowerCase()!="xcross"))
-    {  if (newWord.length < 15) {
+    if (
+      activeLetter &&
+      !selectedWord &&
+      pathname == "/own" &&
+      activeLetter.toLowerCase() != "xcross"
+    ) {
+      if (newWord.length < 15) {
         setNewWord((prev: any) => prev + activeLetter);
-      }}else if(activeLetter && (!selectedWord && pathname == "/own") && (activeLetter.toLowerCase()=="xcross")){
-        if (newWord.length < 15 && newWord.length > 0) {          
-          setNewWord((prev: any) => prev.slice(0, -1));
-          console.log(newWord);
-        }
       }
+    } else if (
+      activeLetter &&
+      !selectedWord &&
+      pathname == "/own" &&
+      activeLetter.toLowerCase() == "xcross"
+    ) {
+      if (newWord.length < 15 && newWord.length > 0) {
+        setNewWord((prev: any) => prev.slice(0, -1));
+        console.log(newWord);
+      }
+    }
   }, [activeLetter, onClickState]);
 
-
-
   useEffect(() => {
-
-    
-    const resettime = setTimeout(() => {      
-      if (activeLetter && traceToggle && noPractice.includes(pathname) && pathname == "/own" && playonetime) {
+    const resettime = setTimeout(() => {
+      console.log();
+      
+      if (
+        activeLetter &&
+        traceToggle &&
+        noPractice.includes(pathname) &&
+        pathname == "/own"&&playonetime
+      ) {
         const traceArea = document.querySelector(".traceLetter");
         let elementArr: any = traceArea ? traceArea.children : [];
         if (elementArr) setElements([...elementArr]);
         [...elementArr]?.forEach((vid: any, i: number) => {
-          if ([...elementArr].length && traceToggle){
-            [...elementArr][0]?.classList.add(`start`)
-          }
-          else if ([...elementArr].length && !traceToggle){
+          if ([...elementArr].length && traceToggle) {
+            [...elementArr][0]?.classList.add(`start`);
+          } else if ([...elementArr].length && !traceToggle) {
           }
         });
         setPlayone(!playonetime);
-      } else if (activeLetter && traceToggle && noPractice.includes(pathname) && pathname == "/own"){
-        playLetterAnimation();
+      } else if (
+        activeLetter &&
+        traceToggle &&
+        noPractice.includes(pathname) &&
+        pathname == "/own"
+      ) {
+        // playLetterAnimation();
       }
     }, 500);
     return () => clearTimeout(resettime);
-  }, [newWord,traceToggle])
+  }, [newWord, traceToggle]);
 
   useEffect(() => {
     if (noPractice.includes(pathname) && pathname !== "/word") {
-
     }
-  }, [traceToggle])
+  }, [traceToggle]);
 
   useEffect(() => {
     return () => {
@@ -253,14 +296,10 @@ const WritingArea = () => {
       if (elementArr) setElements([...elementArr]);
       [...elementArr]?.forEach((vid: any, i: number) => {
         if ([...elementArr].length && traceToggle) {
-         
-          [...elementArr][0]?.classList.add(`start`)
+          [...elementArr][0]?.classList.add(`start`);
+        } else if ([...elementArr].length && !traceToggle) {
+          // [...elementArr][0]?.pause();
         }
-        else if ([...elementArr].length && !traceToggle)
-          {
-            // [...elementArr][0]?.pause();
-
-          }
       });
     }
     if (noPractice.includes(pathname) && pathname != "/own") {
@@ -270,13 +309,10 @@ const WritingArea = () => {
       if (elementArr) setElements([...elementArr]);
       [...elementArr]?.forEach((vid: any, i: number) => {
         if ([...elementArr].length && traceToggle) {
-          console.log([...elementArr][0]);
-          [...elementArr][0]?.play();
+          [...elementArr][0]?.classList.add(`start`);
+        } else if ([...elementArr].length && !traceToggle) {
+          // [...elementArr][0]?.pause();
         }
-        else if ([...elementArr].length && !traceToggle)
-          {// [...elementArr][0]?.pause();
-
-          }
       });
     }
     if (noPractice.includes(pathname) && pathname != "/word") {
@@ -284,39 +320,19 @@ const WritingArea = () => {
       let elementArr: any = traceArea ? traceArea.children : [];
       if (elementArr) setElements([...elementArr]);
       [...elementArr]?.forEach((vid: any, i: number) => {
-        if ([...elementArr].length < 2 && traceToggle) {
-          [...elementArr][0]?.classList.add(`start`)
-        } else if ([...elementArr].length && !traceToggle)
-         { 
+        if ([...elementArr].length && traceToggle) {
+          [...elementArr][0]?.classList.add(`start`);
+        } else if ([...elementArr].length && !traceToggle) {
           // [...elementArr][0]?.pause();
         }
       });
-
-      // [...elementArr]?.map((curr: any, index: any) => {      
-
-        
-      //   if ([...elementArr].length > 0 && traceToggle && curr.currentTime == 0 && playedvid) {
-      //     console.log(curr.currentTime == 0,index);
-      //     console.log('b');
-      //     setPlayedvid(false);
-      //     [...elementArr][st]?.play();
-      //   }else if ([...elementArr].length && traceToggle && curr.currentTime != 0 && playedvid) {
-      //     console.log(curr.currentTime,index,'a');
-      //     console.log('a');          
-      //     resetVideos();
-      //     [...elementArr][0]?.play();
-      //     setSt(0);
-      //     setPlayedvid(false);
-      //   }
-
-      // })
     }
   };
-useEffect(()=>{
-  if (playedvid) {    
-    playLetterAnimation();
-  }
-},[playedvid])
+  useEffect(() => {
+    if (playedvid) {
+      playLetterAnimation();
+    }
+  }, [playedvid]);
 
   const playWordAnimation = () => {
     if (noPractice.includes(pathname) && pathname != "/own") {
@@ -356,10 +372,8 @@ useEffect(()=>{
       const traceArea = document.querySelector(".traceLetter");
       let elementArr: any = traceArea ? traceArea.children : [];
       [...elementArr]?.forEach((vid: any) => {
-        if (vid.currentTime !== 0) {
-          vid.currentTime = 0;
-          // pauseAllVideos();
-        }
+        vid.classList.remove(`end`);
+        vid.classList.remove(`start`);
       });
     }
   };
@@ -392,11 +406,10 @@ useEffect(()=>{
     const lastVid = document.getElementById("vid5");
 
     lastVid?.addEventListener("ended", () => {
-      console.log('rset');
+      console.log("rset");
 
       resetVideos();
       playLetterAnimation();
-
     });
   }, [activeLetter]);
 
@@ -409,12 +422,11 @@ useEffect(()=>{
   useEffect(() => {
     if (!traceToggle) {
       resetVideos();
-
-    }else{
+    } else {
       setPlayone(true);
-    resetVideos();
-    // pauseAllVideos();
-    playLetterAnimation();
+      resetVideos();
+      // pauseAllVideos();
+      playLetterAnimation();
     }
   }, [traceToggle]);
 
@@ -422,27 +434,40 @@ useEffect(()=>{
     // resetVideos();
     // pauseAllVideos();
     // playLetterAnimation();
-  }, [newWord])
-
+  }, [newWord]);
 
   useEffect(() => {
     if (activeLetter && traceToggle && !noPractice.includes(pathname)) {
       playLetterAnimation();
-    } else if (selectedWord && traceToggle && noPractice.includes(pathname) && pathname !== "/own") {
+    } else if (
+      selectedWord &&
+      traceToggle &&
+      noPractice.includes(pathname) &&
+      pathname !== "/own"
+    ) {
       playLetterAnimation();
-    } else if (activeLetter && traceToggle && noPractice.includes(pathname) && pathname == "/own") {
-    }
-    else {
+    } else if (
+      activeLetter &&
+      traceToggle &&
+      noPractice.includes(pathname) &&
+      pathname == "/own"
+    ) {
+    } else {
       resetVideos();
       pauseAllVideos();
     }
   }, [activeLetter, traceToggle, selectedWord]);
   useEffect(() => {
-    if (selectedWord && traceToggle && noPractice.includes(pathname) && pathname !== "/own") {
+    if (
+      selectedWord &&
+      traceToggle &&
+      noPractice.includes(pathname) &&
+      pathname !== "/own"
+    ) {
       resetVideos();
       playLetterAnimation();
     }
-  }, [traced])
+  }, [traced]);
 
   const headText: any = {
     home: "",
@@ -454,14 +479,14 @@ useEffect(()=>{
     own: "Turn trace on to watch the letter being written.",
   };
 
-
-
   return (
     <div className="writtenTable">
       <div className="guidelineHeader">
         <div className="guidelineTxt">
           <div>{headText[pathname.slice(1)]}</div>
-          {pathname == "/own" && <div className="clearBtn" onClick={clearPage}></div>}
+          {pathname == "/own" && (
+            <div className="clearBtn" onClick={clearPage}></div>
+          )}
         </div>
         <div className="onOff">
           <Toggler heading={"guidelines"} />
