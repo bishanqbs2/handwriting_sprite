@@ -938,6 +938,60 @@ body {
           left: 112px;
         }
         .writtenParent {
+          .end{ background-position: right 0;}
+          .start.a{ animation: anim_a 2s steps(62) forwards; }
+          .start.b{ animation: anim_b 2s steps(59) forwards; }
+          .start.c{ animation: anim_c 2s steps(49) forwards; }
+          .start.d{ animation: anim_d 2s steps(79) forwards; }
+          .start.e{ animation: anim_e 2s steps(61) forwards; }
+          .start.f{ animation: anim_f 2s steps(61) forwards; }
+          .start.g{ animation: anim_g 2s steps(73) forwards; }
+          .start.h{ animation: anim_h 2s steps(78) forwards; }
+          .start.i{ animation: anim_i 2s steps(53) forwards; }
+          .start.j{ animation: anim_j 2s steps(57) forwards; }
+          .start.k{ animation: anim_k 2s steps(99) forwards; }
+          .start.l{ animation: anim_l 2s steps(26) forwards; }
+          .start.m{ animation: anim_m 2s steps(103) forwards; }
+          .start.n{ animation: anim_n 2s steps(62) forwards; }
+          .start.o{ animation: anim_o 2s steps(57) forwards; }
+          .start.p{ animation: anim_p 2s steps(69) forwards; }
+          .start.q{ animation: anim_q 2s steps(93) forwards; }
+          .start.r{ animation: anim_r 2s steps(49) forwards; }
+          .start.s{ animation: anim_s 2s steps(51) forwards; }
+          .start.t{ animation: anim_t 2s steps(68) forwards; }
+          .start.u{ animation: anim_u 2s steps(68) forwards; }
+          .start.v{ animation: anim_v 2s steps(42) forwards; }
+          .start.w{ animation: anim_w 2s steps(88) forwards; }
+          .start.x{ animation: anim_x 2s steps(56) forwards; }
+          .start.y{ animation: anim_y 2s steps(71) forwards; }
+          .start.z{ animation: anim_z 2s steps(60) forwards; }
+  
+          @keyframes anim_a { 100% { background-position: -2976px 0; } }
+          @keyframes anim_b { 100% { background-position: -2832px 0; } }
+          @keyframes anim_c { 100% { background-position: -2254px 0; } }
+          @keyframes anim_d { 100% { background-position: -4424px 0; } }
+          @keyframes anim_e { 100% { background-position: -2562px 0; } }
+          @keyframes anim_f { 100% { background-position: -4148px 0; } }
+          @keyframes anim_g { 100% { background-position: -4088px 0; } }
+          @keyframes anim_h { 100% { background-position: -3900px 0; } }
+          @keyframes anim_i { 100% { background-position: -1325px 0; } }
+          @keyframes anim_j { 100% { background-position: -3705px 0; } }
+          @keyframes anim_k { 100% { background-position: -5148px 0; } }
+          @keyframes anim_l { 100% { background-position: -650px 0; } }
+          @keyframes anim_m { 100% { background-position: -8446px 0; } }
+          @keyframes anim_n { 100% { background-position: -3100px 0; } }
+          @keyframes anim_o { 100% { background-position: -2850px 0; } }
+          @keyframes anim_p { 100% { background-position: -3795px 0; } }
+          @keyframes anim_q { 100% { background-position: -5766px 0; } }
+          @keyframes anim_r { 100% { background-position: -2352px 0; } }
+          @keyframes anim_s { 100% { background-position: -2244px 0; } }
+          @keyframes anim_t { 100% { background-position: -3264px 0; } }
+          @keyframes anim_u { 100% { background-position: -3400px 0; } }
+          @keyframes anim_v { 100% { background-position: -2100px 0; } }
+          @keyframes anim_w { 100% { background-position: -7216px 0; } }
+          @keyframes anim_x { 100% { background-position: -2912px 0; } }
+          @keyframes anim_y { 100% { background-position: -4047px 0; } }
+          @keyframes anim_z { 100% { background-position: -3000px 0; } }
           .chooseWord {
             position: relative;
           }
