@@ -42,8 +42,6 @@ const WritingArea = () => {
 
   let arr: any = [];
   const renderMultiple = () => {
-    console.log(selectedNode);
-
     if (selectedNode) {
       for (let index = 0; index < repeatation; index++) {
         if (selectedNode["refAnim"] && !["/own", "/words"].includes(pathname))
