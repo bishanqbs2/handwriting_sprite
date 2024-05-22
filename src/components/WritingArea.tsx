@@ -173,7 +173,7 @@ const WritingArea = () => {
               return (
                 <>
                   <div
-                    className={curr==" "?"space":`${curr}`}
+                    className={curr==" "?"space":curr=="'" ? "colon":curr=="-" ? "hyphen":`${curr}`}
                     id={curr==" "?"space":`${curr}` + (index + 1)}
                     onAnimationEnd={() => {
                       if (
