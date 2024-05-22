@@ -72,7 +72,12 @@ const WritingArea = () => {
                 elements[index].classList.add(`end`)
                 elements[index].classList.remove(`start`)
                 elements[index + 1].classList.add(`start`)
-              }             
+              }else if(index + 1 == repeatation &&
+                elements.length &&
+                traceToggle){
+                  resetVideos();
+                  playLetterAnimation();
+              }            
             }}
             />
           );
@@ -318,9 +323,8 @@ useEffect(()=>{
       const traceArea = document.querySelector(".traceArea");
       let elementArr: any = traceArea ? traceArea.children : [];
       [...elementArr]?.forEach((vid: any) => {
-        if (vid.currentTime !== 0) {
-          vid.currentTime = 0;
-        }
+        vid.classList.remove(`end`);
+        vid.classList.remove(`start`);
       });
     }
     // console.log('test');
