@@ -1225,6 +1225,13 @@ body {
           @keyframes anim_y { 100% { background-position: -4047px 0; } }
           @keyframes anim_z { 100% { background-position: -3000px 0; } }
         }
+        /*--sprite-animation-css--*/
+        .end{ background-position: right 0;}
+        .start.space{ animation: anim_space 0s steps(26) forwards; }
+        
+              
+
+        @keyframes anim_space { 100% { background-position: -1534px 0; } }
       }
     }
 
