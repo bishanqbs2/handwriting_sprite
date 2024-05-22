@@ -83,8 +83,13 @@ const WritingArea = () => {
                   elements.length &&
                   traceToggle
                 ) {
-                  resetVideos();
-                  playLetterAnimation();
+                  elements[index].classList.add(`end`);
+                  elements[index].classList.remove(`start`);
+                  const timeout = setTimeout(() => {                    
+                    resetVideos();
+                    playLetterAnimation();
+                    clearTimeout(timeout);
+                  }, 700);
                 }
               }}
             />
@@ -108,7 +113,7 @@ const WritingArea = () => {
           return (
             // <video height={210} width={curr == curr.toLowerCase() ? (data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refWord"] === "space" ? 40 : 82) : 145}
             <div
-              className={curr==" "?"space":`${curr}`}
+              className={`lettar_${curr==" "?"space":curr=="'" ? "colon":curr=="-" ? "hyphen":`${curr}`}`}
               id={curr==" "?"space":`${curr}` + (index + 1)}
               onAnimationEnd={() => {
                 const traceArea = document.querySelector(".traceLetter");
@@ -122,11 +127,18 @@ const WritingArea = () => {
                   elementArr[index + 1].classList.add(`start`);
                   setplayedindex(index + 1);
                 } else if (elementArr.length == index + 1) {
-                  resetVideos();
+
+                  elements[index].classList.add(`end`);
+                  elements[index].classList.remove(`start`);
+
                   const timeout = setTimeout(() => {
-                    playLetterAnimation();
+                    resetVideos();
+                    const time = setTimeout(() => {
+                      playLetterAnimation();
+                      clearTimeout(time);
+                    }, 700);
                     clearTimeout(timeout);
-                  }, 500);
+                  }, 700);
                   setPlayedvid(true);
                   setSt(index + 1);
                 }
@@ -173,7 +185,7 @@ const WritingArea = () => {
               return (
                 <>
                   <div
-                    className={curr==" "?"space":curr=="'" ? "colon":curr=="-" ? "hyphen":`${curr}`}
+                    className={`lettar_${curr==" "?"space":curr=="'" ? "colon":curr=="-" ? "hyphen":`${curr}`}`}
                     id={curr==" "?"space":`${curr}` + (index + 1)}
                     onAnimationEnd={() => {
                       if (
@@ -190,8 +202,13 @@ const WritingArea = () => {
                         elements.length &&
                         traceToggle
                       ) {
-                        resetVideos();
-                        playLetterAnimation();
+                  elements[index].classList.add(`end`);
+                  elements[index].classList.remove(`start`);
+                      const time =  setTimeout(() => {                          
+                          resetVideos();
+                          playLetterAnimation();
+                          clearTimeout(time);
+                        }, 700);
                       }
                     }}
                     style={{
