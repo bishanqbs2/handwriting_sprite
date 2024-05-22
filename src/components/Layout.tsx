@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 
 const Layout = ({ children }: any) => {
+  
   return (
     <div className="main_content">
       <div className="layer_1">

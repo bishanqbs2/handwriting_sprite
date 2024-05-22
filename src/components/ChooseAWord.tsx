@@ -6,11 +6,10 @@ const ChooseAWord = () => {
   const { words } = data;
   
   const handleSelect = (word: string) => {
-    setSelectedWord(word)
-    const index = filteredWords.indexOf(word)
+    setSelectedWord(word);
+    const index = filteredWords.indexOf(word);
     setWordindex(index);
     setTraced(!traced);
-   
   };
 
 document.onkeydown = function(evt:any) {

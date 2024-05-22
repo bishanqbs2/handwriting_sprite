@@ -119,7 +119,7 @@ async function preload() {
   await Promise.all(
     items.map(async (item) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const data = await AsyncPreloader.loadItems(process.env.PUBLIC_URL + item["src"]);
+      // const data = await AsyncPreloader.loadItems(process.env.PUBLIC_URL + item["src"]);
       console.log(data);
 
       // loadedCount++;

@@ -124,10 +124,9 @@ const WritingArea = () => {
                   elementArr[index].classList.remove(`start`);
                   elementArr[index + 1].classList.add(`start`);
                   setplayedindex(index + 1);
-                } else if (elementArr.length == index + 1) {
-
-                  elements[index].classList.add(`end`);
-                  elements[index].classList.remove(`start`);
+                } else if (elementArr.length == index + 1) {  
+                  elementArr[index].classList.add(`end`);
+                  elementArr[index].classList.remove(`start`);
 
                   const timeout = setTimeout(() => {
                     resetVideos();

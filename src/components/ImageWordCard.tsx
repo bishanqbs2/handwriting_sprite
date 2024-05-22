@@ -2,8 +2,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../Context";
 
 const ImageWordCard = () => {
-  const { selectedNode } = useContext(GlobalContext);
-  
+  const { selectedNode } = useContext(GlobalContext);  
   return (
     <div className="letterWithImg">
       {selectedNode && (
