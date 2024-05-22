@@ -108,8 +108,8 @@ const WritingArea = () => {
           return (
             // <video height={210} width={curr == curr.toLowerCase() ? (data[curr == curr.toLowerCase() ? "lowercase" : "uppercase"][curr]["refWord"] === "space" ? 40 : 82) : 145}
             <div
-              className={`${curr}`}
-              id={curr + (index + 1)}
+              className={curr==" "?"space":`${curr}`}
+              id={curr==" "?"space":`${curr}` + (index + 1)}
               onAnimationEnd={() => {
                 const traceArea = document.querySelector(".traceLetter");
                 let elementArr: any = traceArea ? traceArea.children : [];
@@ -171,8 +171,8 @@ const WritingArea = () => {
               return (
                 <>
                   <div
-                    className={`${curr}`}
-                    id={curr + (index + 1)}
+                    className={curr==" "?"space":`${curr}`}
+                    id={curr==" "?"space":`${curr}` + (index + 1)}
                     onAnimationEnd={() => {
                       if (
                         index + 1 !== elements.length &&
