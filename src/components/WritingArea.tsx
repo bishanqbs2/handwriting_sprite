@@ -264,8 +264,7 @@ const WritingArea = () => {
     const resettime = setTimeout(() => {
       console.log('changed',playonetime);
       const traceArea = document.querySelector(".traceLetter");
-      let elementArr: any = traceArea ? traceArea.children : [];
-      
+      let elementArr: any = traceArea ? traceArea.children : [];      
       if (
         newWord.length &&
         traceToggle &&
@@ -293,7 +292,7 @@ const WritingArea = () => {
       ) {
         // playLetterAnimation();
       }
-    }, 500);
+    }, 1500);
     return () => clearTimeout(resettime);
   }, [newWord, traceToggle]);
 
